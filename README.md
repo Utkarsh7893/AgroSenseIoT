@@ -1,5 +1,11 @@
 Smart IoT Crop Monitoring System
 
+Note:
+Since the backend of this website is developed using PHP, the login feature will not function when running the site directly through a GitHub-hosted link. To use the login system, please download the complete project folder, place it inside the htdocs directory of your XAMPP server, and then access it in the browser by navigating to:
+localhost/Smart IoT Crop Monitoring System/index.html
+From there, the login functionality will work as intended.
+Thank you!
+
 This project, developed during my 2nd year of Computer Science Engineering, focuses on applying front-end development skills to an impactful real-world scenario — precision-based agricultural monitoring using IoT data. The objective was to design a functional interface that fetches, displays, and interprets crop-related sensor readings such as humidity, temperature, and soil moisture. While parts of the system are not fully complete due to pending API and sensor-data integration, the current version successfully demonstrates the visual and structural foundation required for a complete IoT-driven monitoring solution.
 
 Project Overview
