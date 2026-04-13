@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <html>
         <head>
             <title>Signup Success</title>
-            <meta http-equiv='refresh' content='5;url=dashboard.html'>
+            <meta http-equiv='refresh' content='5;url=/mycomponents/dashboard.html'>
             <style>
             h2{text-align:center;}
             p{text-align:center;}

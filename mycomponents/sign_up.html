@@ -11,7 +11,7 @@
 <body class="flex items-center justify-center min-h-screen bg-[url('imag2.png')] bg-cover bg-center overflow-hidden">
   <div class="bg-white bg-opacity-75 p-8 rounded-lg shadow-lg w-full max-w-md">
     <h1 class="text-2xl font-bold font-serif text-center text-green-700 mb-6">Create Your Account</h1>
-    <form id="signupForm" class="space-y-4" action="sign_up.php" method="POST">
+    <form id="signupForm" class="space-y-4" action="/backend/sign_up.php" method="POST">
       <div>
         <label for="name" class="block font-medium">Full Name</label>
         <input type="text" id="name" name="name" class="w-full p-2 border rounded" placeholder="Enter your Name " required>
@@ -36,7 +36,7 @@
     </form>
     <p class="mt-4 text-center text-sm text-gray-600">
       Already have an account?
-      <a href="index.html" class="text-green-700 hover:underline">Login</a>
+      <a href="/index.html" class="text-green-700 hover:underline">Login</a>
     </p>
   </div>
 
