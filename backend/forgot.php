@@ -9,9 +9,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <html>
         <head>
             <title>Reset Link Sent</title>
-            <meta http-equiv='refresh' content='5;url=/mycomponents/index.html'>
+            <meta http-equiv='refresh' content='5; url=../index.html'>
             <style>
-                body { font-family: sans-serif; padding: 20px; text-align: center; background-image: url(/img/image8.jpeg); background-repeat: no-repeat; background-size: cover; background-position: center; height: 100vh;}
+                body { font-family: sans-serif; padding: 20px; text-align: center; background-image: url(../img/image8.jpeg); background-repeat: no-repeat; background-size: cover; background-position: center; height: 100vh;}
                 .message { color: white; font-size: 24px; margin-top: 50px; }
             </style>
         </head>
