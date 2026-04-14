@@ -1,8 +1,8 @@
 <?php
-$host = "localhost";
-$dbname = "smart_iot_crop";
-$user = "root";
-$pass = ""; // XAMPP default is empty
+$host = getenv("DB_HOST") ?: "localhost";
+$dbname = getenv("DB_NAME") ?: "smart_iot_crop";
+$user = getenv("DB_USER") ?: "root";
+$pass = getenv("DB_PASS") !== false ? getenv("DB_PASS") : "";
 
 try {
     $pdo = new PDO(
@@ -15,6 +15,7 @@ try {
         ]
     );
 } catch (PDOException $e) {
-    die("Database connection failed: " . $e->getMessage());
+    http_response_code(500);
+    die("Database connection failed.");
 }
 ?>
