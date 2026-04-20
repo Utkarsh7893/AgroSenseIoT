@@ -78,57 +78,129 @@ $logs = $listStmt->fetchAll();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Irrigation Logs</title>
+  <meta name="description" content="Track irrigation history on AgroSense IoT — log watering schedules, methods, and water usage.">
+  <title>Irrigation Logs — AgroSense IoT</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script>
+    tailwind.config = {
+      theme: { extend: { fontFamily: { inter: ['Inter', 'sans-serif'], outfit: ['Outfit', 'sans-serif'] } } }
+    }
+  </script>
 </head>
-<body class="bg-slate-100 min-h-screen p-6">
-  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-6">
-    <section class="bg-white rounded-xl shadow p-6">
-      <h2 class="text-xl font-semibold mb-4">Add Irrigation Log</h2>
-      <?php if ($errors): ?><div class="mb-3 text-red-700"><?php foreach ($errors as $e) echo "<div>".htmlspecialchars($e)."</div>"; ?></div><?php endif; ?>
-      <?php if ($success): ?><div class="mb-3 text-green-700"><?php echo htmlspecialchars($success); ?></div><?php endif; ?>
+<body class="mgmt-page">
+  <div class="mgmt-container animate-fade-in">
 
-      <form method="POST" class="space-y-3">
-        <select name="plot_id" class="w-full border rounded p-2" required>
-          <option value="">Select Plot</option>
-          <?php foreach ($plots as $p): ?>
-            <option value="<?php echo (int)$p["id"]; ?>"><?php echo htmlspecialchars($p["farm_name"] . " - " . $p["plot_name"]); ?></option>
-          <?php endforeach; ?>
-        </select>
-        <input type="datetime-local" name="started_at" class="w-full border rounded p-2" required>
-        <input type="datetime-local" name="ended_at" class="w-full border rounded p-2">
-        <input type="text" name="method" class="w-full border rounded p-2" placeholder="Drip / Sprinkler / Flood">
-        <input type="text" name="water_liters" class="w-full border rounded p-2" placeholder="Water used (liters)">
-        <textarea name="notes" class="w-full border rounded p-2" placeholder="Notes"></textarea>
-        <button class="w-full bg-blue-600 text-white rounded p-2">Save</button>
-      </form>
-    </section>
+    <!-- Header -->
+    <div class="mgmt-header">
+      <div class="flex items-center gap-4">
+        <a href="./dashboard.php" class="back-btn">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          Dashboard
+        </a>
+        <h1 class="flex items-center gap-2">
+          <span class="text-2xl">💧</span> Irrigation Logs
+        </h1>
+      </div>
+      <div class="mgmt-actions">
+        <a href="./farms.php" class="btn-secondary text-sm py-2 px-4">🌾 Farms</a>
+        <a href="./plots.php" class="btn-secondary text-sm py-2 px-4">🗺️ Plots</a>
+        <a href="./alerts.php" class="btn-secondary text-sm py-2 px-4">⚠️ Alerts</a>
+        <a href="../backend/logout.php" class="btn-danger text-sm py-2 px-4">Logout</a>
+      </div>
+    </div>
 
-    <section class="bg-white rounded-xl shadow p-6 overflow-auto">
-      <h2 class="text-xl font-semibold mb-4">Irrigation History</h2>
-      <table class="w-full text-sm border">
-        <thead class="bg-slate-100">
-          <tr>
-            <th class="p-2 border text-left">Farm/Plot</th>
-            <th class="p-2 border text-left">Start</th>
-            <th class="p-2 border text-left">End</th>
-            <th class="p-2 border text-left">Method</th>
-            <th class="p-2 border text-left">Liters</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php foreach ($logs as $l): ?>
-            <tr>
-              <td class="p-2 border"><?php echo htmlspecialchars($l["farm_name"]." / ".$l["plot_name"]); ?></td>
-              <td class="p-2 border"><?php echo htmlspecialchars($l["started_at"]); ?></td>
-              <td class="p-2 border"><?php echo htmlspecialchars($l["ended_at"] ?? "-"); ?></td>
-              <td class="p-2 border"><?php echo htmlspecialchars($l["method"] ?? "-"); ?></td>
-              <td class="p-2 border"><?php echo htmlspecialchars($l["water_liters"] ?? "-"); ?></td>
-            </tr>
-          <?php endforeach; ?>
-        </tbody>
-      </table>
-    </section>
+    <!-- Content Grid -->
+    <div class="mgmt-grid">
+
+      <!-- Add Irrigation Log Card -->
+      <div class="mgmt-card animate-fade-in-up">
+        <h2>➕ Add Irrigation Log</h2>
+
+        <?php if ($errors): ?>
+          <div class="msg-error">
+            <?php foreach ($errors as $e): ?><div class="text-sm"><?php echo htmlspecialchars($e); ?></div><?php endforeach; ?>
+          </div>
+        <?php endif; ?>
+
+        <?php if ($success): ?>
+          <div class="msg-success text-sm"><?php echo htmlspecialchars($success); ?></div>
+        <?php endif; ?>
+
+        <form method="POST" class="space-y-4">
+          <div>
+            <label class="form-label">Plot *</label>
+            <select name="plot_id" class="form-input" required>
+              <option value="">Select Plot</option>
+              <?php foreach ($plots as $p): ?>
+                <option value="<?php echo (int)$p["id"]; ?>"><?php echo htmlspecialchars($p["farm_name"] . " — " . $p["plot_name"]); ?></option>
+              <?php endforeach; ?>
+            </select>
+          </div>
+          <div>
+            <label class="form-label">Start Time *</label>
+            <input type="datetime-local" name="started_at" class="form-input" required>
+          </div>
+          <div>
+            <label class="form-label">End Time</label>
+            <input type="datetime-local" name="ended_at" class="form-input">
+          </div>
+          <div>
+            <label class="form-label">Method</label>
+            <input type="text" name="method" class="form-input" placeholder="Drip / Sprinkler / Flood">
+          </div>
+          <div>
+            <label class="form-label">Water Used (Liters)</label>
+            <input type="text" name="water_liters" class="form-input" placeholder="e.g. 500">
+          </div>
+          <div>
+            <label class="form-label">Notes</label>
+            <textarea name="notes" class="form-input" rows="2" placeholder="Optional notes..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary w-full py-2.5">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+            Save Log
+          </button>
+        </form>
+      </div>
+
+      <!-- Irrigation History Card -->
+      <div class="mgmt-card animate-fade-in-up" style="animation-delay: 0.1s;">
+        <h2>📋 Irrigation History</h2>
+
+        <?php if (empty($logs)): ?>
+          <div class="text-center py-8">
+            <span class="text-5xl block mb-3">💧</span>
+            <p class="text-slate-500">No irrigation logs yet.</p>
+          </div>
+        <?php else: ?>
+          <div class="overflow-auto rounded-xl border border-slate-100">
+            <table class="mgmt-table">
+              <thead>
+                <tr>
+                  <th>Farm / Plot</th>
+                  <th>Start</th>
+                  <th>End</th>
+                  <th>Method</th>
+                  <th>Liters</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach ($logs as $l): ?>
+                  <tr>
+                    <td class="font-medium text-slate-800"><?php echo htmlspecialchars($l["farm_name"]." / ".$l["plot_name"]); ?></td>
+                    <td class="text-xs"><?php echo htmlspecialchars($l["started_at"]); ?></td>
+                    <td class="text-xs"><?php echo htmlspecialchars($l["ended_at"] ?? "—"); ?></td>
+                    <td><?php echo htmlspecialchars($l["method"] ?? "—"); ?></td>
+                    <td><?php echo htmlspecialchars($l["water_liters"] ?? "—"); ?></td>
+                  </tr>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+          </div>
+        <?php endif; ?>
+      </div>
+    </div>
   </div>
 </body>
 </html>

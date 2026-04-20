@@ -107,27 +107,51 @@ $plots = $plotStmt->fetchAll();
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Plots</title>
+  <meta name="description" content="Manage your farm plots on AgroSense IoT — track crops, sowing dates, and irrigation types.">
+  <title>Farm Plots — AgroSense IoT</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script>
+    tailwind.config = {
+      theme: { extend: { fontFamily: { inter: ['Inter', 'sans-serif'], outfit: ['Outfit', 'sans-serif'] } } }
+    }
+  </script>
 </head>
-<body class="bg-slate-100 min-h-screen">
-  <div class="max-w-7xl mx-auto px-4 py-8">
-    <div class="flex items-center justify-between mb-6">
-      <h1 class="text-3xl font-bold text-slate-800">Farm Plots</h1>
-      <div class="space-x-2">
-        <a href="./dashboard.php" class="px-4 py-2 rounded bg-green-600 text-white hover:bg-green-700">Dashboard</a>
-        <a href="./farms.php" class="px-4 py-2 rounded bg-indigo-600 text-white hover:bg-indigo-700">Farms</a>
-        <a href="../backend/logout.php" class="px-4 py-2 rounded bg-red-600 text-white hover:bg-red-700">Logout</a>
+<body class="mgmt-page">
+  <div class="mgmt-container animate-fade-in">
+
+    <!-- Header -->
+    <div class="mgmt-header">
+      <div class="flex items-center gap-3 flex-wrap">
+        <a href="./dashboard.php" class="back-btn">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          Dashboard
+        </a>
+        <a href="./farms.php" class="back-btn">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          Farms
+        </a>
+        <h1 class="flex items-center gap-2">
+          <span class="text-2xl">🗺️</span> Farm Plots
+        </h1>
+      </div>
+      <div class="mgmt-actions">
+        <a href="./alerts.php" class="btn-secondary text-sm py-2 px-4">⚠️ Alerts</a>
+        <a href="./irrigation.php" class="btn-secondary text-sm py-2 px-4">💧 Irrigation</a>
+        <a href="../backend/logout.php" class="btn-danger text-sm py-2 px-4">Logout</a>
       </div>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-6">
-      <section class="bg-white rounded-xl shadow p-6">
-        <h2 class="text-xl font-semibold mb-4">Add Plot</h2>
+    <!-- Content Grid -->
+    <div class="mgmt-grid">
+
+      <!-- Add Plot Card -->
+      <div class="mgmt-card animate-fade-in-up">
+        <h2>➕ Add Plot</h2>
 
         <?php if (!empty($errors)): ?>
-          <div class="mb-4 rounded bg-red-100 text-red-700 px-4 py-3">
-            <ul class="list-disc pl-5">
+          <div class="msg-error">
+            <ul class="list-disc pl-5 text-sm">
               <?php foreach ($errors as $error): ?>
                 <li><?php echo htmlspecialchars($error); ?></li>
               <?php endforeach; ?>
@@ -136,18 +160,19 @@ $plots = $plotStmt->fetchAll();
         <?php endif; ?>
 
         <?php if ($success !== ""): ?>
-          <div class="mb-4 rounded bg-green-100 text-green-700 px-4 py-3">
-            <?php echo htmlspecialchars($success); ?>
-          </div>
+          <div class="msg-success text-sm"><?php echo htmlspecialchars($success); ?></div>
         <?php endif; ?>
 
         <?php if (empty($farms)): ?>
-          <p class="text-slate-600">No farms available. Create a farm first.</p>
+          <div class="text-center py-6">
+            <span class="text-4xl block mb-2">🌾</span>
+            <p class="text-slate-500 text-sm">No farms available. <a href="./farms.php" class="text-emerald-600 font-medium hover:underline">Create a farm first</a>.</p>
+          </div>
         <?php else: ?>
           <form method="POST" class="space-y-4">
             <div>
-              <label class="block text-sm font-medium mb-1">Farm *</label>
-              <select name="farm_id" class="w-full border rounded px-3 py-2" required>
+              <label class="form-label">Farm *</label>
+              <select name="farm_id" class="form-input" required>
                 <option value="">Select farm</option>
                 <?php foreach ($farms as $farm): ?>
                   <option value="<?php echo (int)$farm["id"]; ?>" <?php echo ($selectedFarmId === (int)$farm["id"]) ? "selected" : ""; ?>>
@@ -156,66 +181,66 @@ $plots = $plotStmt->fetchAll();
                 <?php endforeach; ?>
               </select>
             </div>
-
             <div>
-              <label class="block text-sm font-medium mb-1">Plot Name *</label>
-              <input type="text" name="plot_name" class="w-full border rounded px-3 py-2" required />
+              <label class="form-label">Plot Name *</label>
+              <input type="text" name="plot_name" class="form-input" placeholder="e.g. North Field A" required />
             </div>
-
             <div>
-              <label class="block text-sm font-medium mb-1">Crop Type</label>
-              <input type="text" name="crop_type" class="w-full border rounded px-3 py-2" placeholder="Wheat / Rice / Maize" />
+              <label class="form-label">Crop Type</label>
+              <input type="text" name="crop_type" class="form-input" placeholder="Wheat / Rice / Maize" />
             </div>
-
             <div>
-              <label class="block text-sm font-medium mb-1">Sowing Date</label>
-              <input type="date" name="sowing_date" class="w-full border rounded px-3 py-2" />
+              <label class="form-label">Sowing Date</label>
+              <input type="date" name="sowing_date" class="form-input" />
             </div>
-
             <div>
-              <label class="block text-sm font-medium mb-1">Irrigation Type</label>
-              <input type="text" name="irrigation_type" class="w-full border rounded px-3 py-2" placeholder="Drip / Sprinkler / Flood" />
+              <label class="form-label">Irrigation Type</label>
+              <input type="text" name="irrigation_type" class="form-input" placeholder="Drip / Sprinkler / Flood" />
             </div>
-
-            <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
+            <button type="submit" class="btn-primary w-full py-2.5">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
               Save Plot
             </button>
           </form>
         <?php endif; ?>
-      </section>
+      </div>
 
-      <section class="bg-white rounded-xl shadow p-6">
-        <h2 class="text-xl font-semibold mb-4">Plot List</h2>
+      <!-- Plot List Card -->
+      <div class="mgmt-card animate-fade-in-up" style="animation-delay: 0.1s;">
+        <h2>📋 Plot List</h2>
 
         <?php if (empty($plots)): ?>
-          <p class="text-slate-600">No plots added yet.</p>
+          <div class="text-center py-8">
+            <span class="text-5xl block mb-3">🗺️</span>
+            <p class="text-slate-500">No plots added yet.</p>
+          </div>
         <?php else: ?>
-          <div class="overflow-auto">
-            <table class="w-full text-sm border">
-              <thead class="bg-slate-100">
+          <div class="overflow-auto rounded-xl border border-slate-100">
+            <table class="mgmt-table">
+              <thead>
                 <tr>
-                  <th class="p-2 border text-left">Farm</th>
-                  <th class="p-2 border text-left">Plot</th>
-                  <th class="p-2 border text-left">Crop</th>
-                  <th class="p-2 border text-left">Sowing</th>
-                  <th class="p-2 border text-left">Irrigation</th>
+                  <th>Farm</th>
+                  <th>Plot</th>
+                  <th>Crop</th>
+                  <th>Sowing</th>
+                  <th>Irrigation</th>
                 </tr>
               </thead>
               <tbody>
                 <?php foreach ($plots as $plot): ?>
                   <tr>
-                    <td class="p-2 border"><?php echo htmlspecialchars($plot["farm_name"]); ?></td>
-                    <td class="p-2 border"><?php echo htmlspecialchars($plot["plot_name"]); ?></td>
-                    <td class="p-2 border"><?php echo htmlspecialchars($plot["crop_type"] ?? "-"); ?></td>
-                    <td class="p-2 border"><?php echo htmlspecialchars($plot["sowing_date"] ?? "-"); ?></td>
-                    <td class="p-2 border"><?php echo htmlspecialchars($plot["irrigation_type"] ?? "-"); ?></td>
+                    <td class="font-medium text-slate-800"><?php echo htmlspecialchars($plot["farm_name"]); ?></td>
+                    <td><?php echo htmlspecialchars($plot["plot_name"]); ?></td>
+                    <td><?php echo htmlspecialchars($plot["crop_type"] ?? "—"); ?></td>
+                    <td class="text-xs"><?php echo htmlspecialchars($plot["sowing_date"] ?? "—"); ?></td>
+                    <td><?php echo htmlspecialchars($plot["irrigation_type"] ?? "—"); ?></td>
                   </tr>
                 <?php endforeach; ?>
               </tbody>
             </table>
           </div>
         <?php endif; ?>
-      </section>
+      </div>
     </div>
   </div>
 </body>

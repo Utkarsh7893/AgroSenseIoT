@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn about AgroSense IoT — a smart crop monitoring system using IoT sensors to empower sustainable and data-driven farming.">
+  <title>About — AgroSense IoT</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+    tailwind.config = {
+      theme: { extend: { fontFamily: { inter: ['Inter', 'sans-serif'], outfit: ['Outfit', 'sans-serif'] } } }
+    }
+  </script>
+</head>
+
+<body class="watermark-bg">
+
+  <!-- Three.js Canvas Background -->
+  <canvas id="nature-canvas"></canvas>
+
+  <!-- Navigation Bar -->
+  <nav class="main-nav" id="mainNav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <img src="img/logo-0_1.png" alt="AgroSense IoT Logo">
+        <span>AgroSense IoT</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="index.html" class="nav-cta">Login</a></li>
+      </ul>
+    </div>
+    <div class="nav-overlay" id="navOverlay"></div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative pt-32 pb-20 px-4">
+    <div class="max-w-6xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-emerald-200 text-sm font-medium mb-6 animate-fade-in-down">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse-gentle"></span>
+        Empowering Agriculture with Technology
+      </div>
+      <h1 class="text-4xl md:text-6xl font-bold font-outfit text-white mb-6 animate-fade-in-up leading-tight">
+        About <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-lime-300">AgroSense IoT</span>
+      </h1>
+      <p class="text-lg md:text-xl text-emerald-100/80 max-w-3xl mx-auto leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s;">
+        A web-based smart crop monitoring system designed to help farmers track environmental conditions, 
+        make data-driven decisions, and embrace sustainable agriculture through IoT technology.
+      </p>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="glass-card-strong p-8 md:p-12 scroll-reveal">
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <div>
+            <h2 class="text-3xl font-bold font-outfit text-emerald-900 mb-4">Our Mission</h2>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              AgroSense IoT aims to bridge the gap between traditional farming and modern technology. 
+              By leveraging IoT sensors, real-time data analytics, and intuitive dashboards, we empower 
+              farmers to monitor key environmental factors — <strong>temperature</strong>, <strong>humidity</strong>, 
+              and <strong>soil moisture</strong> — to optimize crop health and productivity.
+            </p>
+            <p class="text-gray-600 leading-relaxed">
+              Developed as an academic project by Utkarsh Raj, this platform is designed with scalability 
+              in mind, ready to integrate with Arduino, ESP, and Raspberry Pi sensors for real-time 
+              monitoring in the field.
+            </p>
+          </div>
+          <div class="rounded-2xl overflow-hidden shadow-xl">
+            <img src="img/about_hero.png" alt="Aerial view of lush green farmland" class="w-full h-72 object-cover hover:scale-105 transition-transform duration-700">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Do Section -->
+  <section class="py-16 px-4">
+    <div class="max-w-6xl mx-auto text-center mb-12 scroll-reveal">
+      <h2 class="text-3xl md:text-4xl font-bold font-outfit text-white mb-3">What We Do</h2>
+      <p class="text-emerald-200/70 text-lg max-w-2xl mx-auto">Comprehensive crop monitoring through smart technology</p>
+    </div>
+
+    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
+      <!-- Card 1 -->
+      <div class="glass-card-strong p-8 text-center hover-lift scroll-reveal">
+        <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-emerald-400 to-green-600 rounded-2xl shadow-lg mb-5">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+        </div>
+        <h3 class="text-xl font-bold font-outfit text-emerald-900 mb-3">IoT Monitoring</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">Real-time tracking of temperature, humidity, and soil moisture using IoT sensors deployed across your farm.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="glass-card-strong p-8 text-center hover-lift scroll-reveal" style="animation-delay: 0.1s;">
+        <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-sky-400 to-blue-600 rounded-2xl shadow-lg mb-5">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+        </div>
+        <h3 class="text-xl font-bold font-outfit text-emerald-900 mb-3">Smart Irrigation</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">Automated irrigation recommendations based on soil moisture readings. Log and track watering schedules effortlessly.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="glass-card-strong p-8 text-center hover-lift scroll-reveal" style="animation-delay: 0.2s;">
+        <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl shadow-lg mb-5">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+        </div>
+        <h3 class="text-xl font-bold font-outfit text-emerald-900 mb-3">Data Analytics</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">Visualize trends with interactive charts, access historical data, and receive smart alerts for crop health management.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Image Gallery Section -->
+  <section class="py-16 px-4">
+    <div class="max-w-6xl mx-auto text-center mb-12 scroll-reveal">
+      <h2 class="text-3xl md:text-4xl font-bold font-outfit text-white mb-3">See It In Action</h2>
+      <p class="text-emerald-200/70 text-lg">Smart farming through technology and nature working together</p>
+    </div>
+
+    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
+      <div class="rounded-2xl overflow-hidden shadow-xl group scroll-reveal">
+        <div class="relative">
+          <img src="img/about_hero.png" alt="Aerial farmland view" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
+            <p class="text-white font-medium">Vast farmlands stretching to the horizon</p>
+          </div>
+        </div>
+      </div>
+      <div class="rounded-2xl overflow-hidden shadow-xl group scroll-reveal" style="animation-delay: 0.1s;">
+        <div class="relative">
+          <img src="img/about_iot.png" alt="IoT sensors in crop field" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
+            <p class="text-white font-medium">IoT sensors monitoring crop conditions</p>
+          </div>
+        </div>
+      </div>
+      <div class="rounded-2xl overflow-hidden shadow-xl group scroll-reveal" style="animation-delay: 0.2s;">
+        <div class="relative">
+          <img src="img/about_analytics.png" alt="Data analytics dashboard on tablet" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
+            <p class="text-white font-medium">Real-time data analytics in the field</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Stack Section -->
+  <section class="py-16 px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="glass-card-strong p-8 md:p-10 scroll-reveal">
+        <h2 class="text-3xl font-bold font-outfit text-emerald-900 mb-8 text-center">Technology Stack</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div class="flex flex-col items-center gap-2 p-4 rounded-xl bg-orange-50 hover:bg-orange-100 transition-colors hover-lift">
+            <span class="text-3xl">🌐</span>
+            <span class="text-sm font-semibold text-gray-700">HTML5</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 p-4 rounded-xl bg-blue-50 hover:bg-blue-100 transition-colors hover-lift">
+            <span class="text-3xl">🎨</span>
+            <span class="text-sm font-semibold text-gray-700">CSS3</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 p-4 rounded-xl bg-yellow-50 hover:bg-yellow-100 transition-colors hover-lift">
+            <span class="text-3xl">⚡</span>
+            <span class="text-sm font-semibold text-gray-700">JavaScript</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 p-4 rounded-xl bg-indigo-50 hover:bg-indigo-100 transition-colors hover-lift">
+            <span class="text-3xl">🐘</span>
+            <span class="text-sm font-semibold text-gray-700">PHP</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 p-4 rounded-xl bg-cyan-50 hover:bg-cyan-100 transition-colors hover-lift">
+            <span class="text-3xl">🗄️</span>
+            <span class="text-sm font-semibold text-gray-700">MySQL</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 p-4 rounded-xl bg-green-50 hover:bg-green-100 transition-colors hover-lift">
+            <span class="text-3xl">📡</span>
+            <span class="text-sm font-semibold text-gray-700">Arduino/ESP</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Overview -->
+  <section class="py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12 scroll-reveal">
+        <h2 class="text-3xl md:text-4xl font-bold font-outfit text-white mb-3">Platform Features</h2>
+        <p class="text-emerald-200/70 text-lg">Everything you need for smarter farming (hover for details)</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 scroll-reveal">
+        
+        <!-- Feature 1 -->
+        <div class="glass-card feature-card-interactive p-6 flex items-start gap-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-emerald-100 flex items-center justify-center text-2xl">📊</div>
+          <div>
+            <h3 class="font-bold text-emerald-900 font-outfit text-lg mb-1">Interactive Dashboard</h3>
+            <p class="text-gray-600 text-sm">Real-time visualization of sensor data with trend charts and alerts for immediate insights.</p>
+          </div>
+          <div class="feature-popover">
+            <h4>Live Sensor Tracking</h4>
+            <p>Our dashboard integrates directly with MQTT/HTTP endpoints from your field sensors to provide minute-by-minute updates.</p>
+            <ul>
+              <li>Historical line charts</li>
+              <li>Widget-based modular view</li>
+              <li>Data export capabilities</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="glass-card feature-card-interactive p-6 flex items-start gap-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-sky-100 flex items-center justify-center text-2xl">🔐</div>
+          <div>
+            <h3 class="font-bold text-emerald-900 font-outfit text-lg mb-1">Secure Authentication</h3>
+            <p class="text-gray-600 text-sm">PHP-based user accounts with session management, ensuring your data stays private.</p>
+          </div>
+          <div class="feature-popover">
+            <h4>Bank-Grade Security</h4>
+            <p>Your agricultural data is sensitive. We use robust hashing and session tokens to secure every endpoint.</p>
+            <ul>
+              <li>Bcrypt password hashing</li>
+              <li>Session validation middleware</li>
+              <li>Role-based access possible</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="glass-card feature-card-interactive p-6 flex items-start gap-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center text-2xl">🌾</div>
+          <div>
+            <h3 class="font-bold text-emerald-900 font-outfit text-lg mb-1">Farm & Plot Management</h3>
+            <p class="text-gray-600 text-sm">Organize multiple farms and plots, track crop types, sowing dates, and irrigation methods.</p>
+          </div>
+          <div class="feature-popover">
+            <h4>Hierarchical Mapping</h4>
+            <p>Perfect for multi-acre operations, segment your fields logically. Group plots under distinct farms.</p>
+            <ul>
+              <li>Track specific crop details</li>
+              <li>Assign sensors per plot</li>
+              <li>Aggregate farm-level statistics</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="glass-card feature-card-interactive p-6 flex items-start gap-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-rose-100 flex items-center justify-center text-2xl">🔔</div>
+          <div>
+            <h3 class="font-bold text-emerald-900 font-outfit text-lg mb-1">Smart Alerts</h3>
+            <p class="text-gray-600 text-sm">Customizable severity-based alerts for critical conditions like low moisture or high temperature.</p>
+          </div>
+          <div class="feature-popover">
+            <h4>Proactive Notifications</h4>
+            <p>Don't wait for disaster. Set thresholds for moisture, temperature, and pH automatically triggering warnings.</p>
+            <ul>
+              <li>Low, Medium, High severity</li>
+              <li>Visual dashboard indicators</li>
+              <li>Actionable recommendations</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Creator Section -->
+  <section class="py-16 px-4">
+    <div class="max-w-3xl mx-auto">
+      <div class="glass-card-strong p-8 md:p-10 text-center scroll-reveal">
+        <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-emerald-400 to-green-600 rounded-full shadow-lg mb-5 text-3xl">
+          👨‍💻
+        </div>
+        <h2 class="text-2xl font-bold font-outfit text-emerald-900 mb-2">Built by Utkarsh Raj</h2>
+        <p class="text-green-700 font-medium mb-4">Aspiring Full Stack Web Developer 🚀</p>
+        <p class="text-gray-600 text-sm leading-relaxed max-w-lg mx-auto">
+          This project was developed as part of a 2nd-year Computer Science Engineering curriculum, 
+          combining a passion for web development with a vision for technology-driven agriculture. 
+          The system emphasizes responsive design, modular architecture, and scalability for future IoT integration.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>🌱 AgroSense IoT</h4>
+        <p class="text-sm text-white/50 leading-relaxed">Empowering agriculture with smart IoT technology for sustainable and data-driven farming.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="events.html">Events</a>
+        <a href="index.html">Login</a>
+      </div>
+      <div class="footer-col">
+        <h4>Features</h4>
+        <a href="#">Dashboard</a>
+        <a href="#">Farm Management</a>
+        <a href="#">Alert System</a>
+        <a href="#">Irrigation Logs</a>
+      </div>
+      <div class="footer-col">
+        <h4>Technology</h4>
+        <a href="#">HTML / CSS / JS</a>
+        <a href="#">PHP + MySQL</a>
+        <a href="#">Three.js</a>
+        <a href="#">Arduino / ESP</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 AgroSense IoT — Smart Crop Monitoring System. Built with 💚 by Utkarsh Raj.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="js/nature-bg.js"></script>
+  <script>
+    // Navigation toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    const navOverlay = document.getElementById('navOverlay');
+    const mainNav = document.getElementById('mainNav');
+
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      navOverlay.classList.toggle('active');
+    });
+    navOverlay.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navOverlay.classList.remove('active');
+    });
+    window.addEventListener('scroll', () => {
+      mainNav.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Scroll reveal
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+        }
+      });
+    }, { threshold: 0.1 });
+    revealElements.forEach(el => observer.observe(el));
+  </script>
+</body>
+
+</html>

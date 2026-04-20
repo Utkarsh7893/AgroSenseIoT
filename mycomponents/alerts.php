@@ -99,104 +99,133 @@ $alerts = $alertStmt->fetchAll();
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alerts</title>
+  <meta name="description" content="Manage crop alerts on AgroSense IoT — create, view, and manage severity-based notifications.">
+  <title>Alerts — AgroSense IoT</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script>
+    tailwind.config = {
+      theme: { extend: { fontFamily: { inter: ['Inter', 'sans-serif'], outfit: ['Outfit', 'sans-serif'] } } }
+    }
+  </script>
 </head>
-<body class="bg-slate-100 min-h-screen">
-  <div class="max-w-7xl mx-auto px-4 py-8">
-    <div class="flex items-center justify-between mb-6">
-      <h1 class="text-3xl font-bold text-slate-800">Alerts</h1>
-      <div class="space-x-2">
-        <a href="./dashboard.php" class="px-4 py-2 rounded bg-green-600 text-white">Dashboard</a>
-        <a href="./plots.php" class="px-4 py-2 rounded bg-indigo-600 text-white">Plots</a>
-        <a href="../backend/logout.php" class="px-4 py-2 rounded bg-red-600 text-white">Logout</a>
+<body class="mgmt-page">
+  <div class="mgmt-container animate-fade-in">
+
+    <!-- Header -->
+    <div class="mgmt-header">
+      <div class="flex items-center gap-4">
+        <a href="./dashboard.php" class="back-btn">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          Dashboard
+        </a>
+        <h1 class="flex items-center gap-2">
+          <span class="text-2xl">⚠️</span> Alerts Manager
+        </h1>
+      </div>
+      <div class="mgmt-actions">
+        <a href="./farms.php" class="btn-secondary text-sm py-2 px-4">🌾 Farms</a>
+        <a href="./plots.php" class="btn-secondary text-sm py-2 px-4">🗺️ Plots</a>
+        <a href="../backend/logout.php" class="btn-danger text-sm py-2 px-4">Logout</a>
       </div>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-6">
-      <section class="bg-white rounded-xl shadow p-6">
-        <h2 class="text-xl font-semibold mb-4">Add Alert</h2>
+    <!-- Content Grid -->
+    <div class="mgmt-grid">
+
+      <!-- Add Alert Card -->
+      <div class="mgmt-card animate-fade-in-up">
+        <h2>🔔 Add Alert</h2>
 
         <?php if (!empty($errors)): ?>
-          <div class="mb-4 rounded bg-red-100 text-red-700 px-4 py-3">
-            <?php foreach ($errors as $e): ?><div><?php echo htmlspecialchars($e); ?></div><?php endforeach; ?>
+          <div class="msg-error">
+            <?php foreach ($errors as $e): ?><div class="text-sm"><?php echo htmlspecialchars($e); ?></div><?php endforeach; ?>
           </div>
         <?php endif; ?>
 
         <?php if ($success): ?>
-          <div class="mb-4 rounded bg-green-100 text-green-700 px-4 py-3"><?php echo htmlspecialchars($success); ?></div>
+          <div class="msg-success text-sm"><?php echo htmlspecialchars($success); ?></div>
         <?php endif; ?>
 
         <form method="POST" class="space-y-4">
           <div>
-            <label class="block mb-1 text-sm font-medium">Plot</label>
-            <select name="plot_id" class="w-full border rounded px-3 py-2" required>
+            <label class="form-label">Plot</label>
+            <select name="plot_id" class="form-input" required>
               <option value="">Select plot</option>
               <?php foreach ($plots as $plot): ?>
                 <option value="<?php echo (int)$plot["id"]; ?>">
-                  <?php echo htmlspecialchars($plot["farm_name"] . " - " . $plot["plot_name"]); ?>
+                  <?php echo htmlspecialchars($plot["farm_name"] . " — " . $plot["plot_name"]); ?>
                 </option>
               <?php endforeach; ?>
             </select>
           </div>
-
           <div>
-            <label class="block mb-1 text-sm font-medium">Severity</label>
-            <select name="severity" class="w-full border rounded px-3 py-2">
-              <option value="low">Low</option>
-              <option value="medium">Medium</option>
-              <option value="high">High</option>
+            <label class="form-label">Severity</label>
+            <select name="severity" class="form-input">
+              <option value="low">🟢 Low</option>
+              <option value="medium">🟡 Medium</option>
+              <option value="high">🔴 High</option>
             </select>
           </div>
-
           <div>
-            <label class="block mb-1 text-sm font-medium">Message</label>
-            <textarea name="message" class="w-full border rounded px-3 py-2" rows="3" required></textarea>
+            <label class="form-label">Message</label>
+            <textarea name="message" class="form-input" rows="3" placeholder="Describe the alert condition..." required></textarea>
           </div>
-
-          <button class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Save Alert</button>
+          <button type="submit" class="btn-primary w-full py-2.5">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+            Save Alert
+          </button>
         </form>
-      </section>
+      </div>
 
-      <section class="bg-white rounded-xl shadow p-6">
-        <h2 class="text-xl font-semibold mb-4">Alert List</h2>
+      <!-- Alert List Card -->
+      <div class="mgmt-card animate-fade-in-up" style="animation-delay: 0.1s;">
+        <h2>📋 Alert List</h2>
         <?php if (empty($alerts)): ?>
-          <p class="text-slate-600">No alerts yet.</p>
+          <div class="text-center py-8">
+            <span class="text-5xl block mb-3">✅</span>
+            <p class="text-slate-500">No alerts yet. All clear!</p>
+          </div>
         <?php else: ?>
-          <div class="overflow-auto">
-            <table class="w-full text-sm border">
-              <thead class="bg-slate-100">
+          <div class="overflow-auto rounded-xl border border-slate-100">
+            <table class="mgmt-table">
+              <thead>
                 <tr>
-                  <th class="p-2 border text-left">Farm/Plot</th>
-                  <th class="p-2 border text-left">Severity</th>
-                  <th class="p-2 border text-left">Message</th>
-                  <th class="p-2 border text-left">Status</th>
-                  <th class="p-2 border text-left">Action</th>
+                  <th>Farm / Plot</th>
+                  <th>Severity</th>
+                  <th>Message</th>
+                  <th>Status</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
                 <?php foreach ($alerts as $a): ?>
                   <tr>
-                    <td class="p-2 border"><?php echo htmlspecialchars($a["farm_name"] . " / " . $a["plot_name"]); ?></td>
-                    <td class="p-2 border">
+                    <td class="font-medium text-slate-800"><?php echo htmlspecialchars($a["farm_name"] . " / " . $a["plot_name"]); ?></td>
+                    <td>
                       <?php
                         $sev = strtolower($a["severity"]);
-                        $sevClass = "bg-slate-100 text-slate-700";
-                        if ($sev === "high") $sevClass = "bg-red-100 text-red-700";
-                        elseif ($sev === "medium") $sevClass = "bg-amber-100 text-amber-700";
-                        elseif ($sev === "low") $sevClass = "bg-emerald-100 text-emerald-700";
+                        $badgeClass = "badge-low";
+                        if ($sev === "high") $badgeClass = "badge-high";
+                        elseif ($sev === "medium") $badgeClass = "badge-medium";
                       ?>
-                      <span class="px-2 py-1 rounded-full text-xs font-semibold <?php echo $sevClass; ?>">
+                      <span class="badge <?php echo $badgeClass; ?>">
                         <?php echo htmlspecialchars(strtoupper($a["severity"])); ?>
                       </span>
                     </td>
-                    <td class="p-2 border"><?php echo htmlspecialchars($a["message"]); ?></td>
-                    <td class="p-2 border"><?php echo $a["is_read"] ? "Read" : "Unread"; ?></td>
-                    <td class="p-2 border">
-                      <?php if (!$a["is_read"]): ?>
-                        <a class="text-blue-600 hover:underline" href="./alerts.php?mark_read=<?php echo (int)$a["id"]; ?>">Mark Read</a>
+                    <td class="text-sm max-w-xs"><?php echo htmlspecialchars($a["message"]); ?></td>
+                    <td>
+                      <?php if ($a["is_read"]): ?>
+                        <span class="text-xs text-slate-400 font-medium">Read ✓</span>
                       <?php else: ?>
-                        <span class="text-slate-400">-</span>
+                        <span class="badge badge-medium">Unread</span>
+                      <?php endif; ?>
+                    </td>
+                    <td>
+                      <?php if (!$a["is_read"]): ?>
+                        <a class="text-emerald-600 hover:text-emerald-800 font-medium text-sm transition-colors" href="./alerts.php?mark_read=<?php echo (int)$a["id"]; ?>">Mark Read</a>
+                      <?php else: ?>
+                        <span class="text-slate-300">—</span>
                       <?php endif; ?>
                     </td>
                   </tr>
@@ -205,7 +234,7 @@ $alerts = $alertStmt->fetchAll();
             </table>
           </div>
         <?php endif; ?>
-      </section>
+      </div>
     </div>
   </div>
 </body>

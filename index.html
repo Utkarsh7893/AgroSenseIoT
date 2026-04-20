@@ -4,64 +4,138 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login To Crop Dashboard</title>
+  <meta name="description" content="AgroSense IoT — Smart Crop Monitoring System. Monitor temperature, humidity, and soil moisture for smarter, data-driven farming.">
+  <title>AgroSense IoT — Smart Crop Monitoring</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            inter: ['Inter', 'sans-serif'],
+            outfit: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
 </head>
 
-<body class="bg-[url('img/image1.jpg')] bg-cover bg-center h-screen overflow-hidden">
-  
-    <div class="w-full bg-white/65 py-5 shadow-lg text-center">
-      <h2 class="text-2xl font-bold font-serif text-green-700">Welcome to Smart Crop Monitoring System</h2>
+<body class="bg-[url('img/image1.jpg')] bg-cover bg-center min-h-screen overflow-x-hidden font-inter">
+
+  <!-- Navigation Bar -->
+  <nav class="main-nav animate-fade-in-down" id="mainNav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <img src="img/logo-0_1.png" alt="AgroSense IoT Logo">
+        <span>AgroSense IoT</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="index.html" class="nav-cta">Login</a></li>
+      </ul>
     </div>
-  
-    <div class="flex items-center justify-center min-h-screen pt-0">
-      <div class="bg-white bg-opacity-85 p-8 rounded-lg shadow-lg w-full max-w-md">
-        
-        <div class="flex items-center justify-center mb-4 space-x-3">
-          <img src="img/logo-0_1.png" alt="logo_1.png" class="h-12 w-12 rounded-full object-contain">
-          <h1 class="text-2xl font-bold text-green-700">AgroSense IoT</h1>
-        </div>
-  
-        <form id="loginForm" class="space-y-4" action="backend/login_0.php" method="POST">
-          <div>
-            <label for="Username" class="block font-medium">Username</label>
-            <input type="text" id="Username" name="Username" class="w-full p-2 border rounded" placeholder="enter your username " required>
-          </div>
-          <div>
-            <label for="password" class="block font-medium">Password</label>
-            <input type="password" id="password" name="password" class="w-full p-2 border rounded" placeholder="••••••••" required>
-          </div>
-          <div class="flex items-center justify-between">
-            <label class="flex items-center space-x-2">
-              <input type="checkbox" class="form-checkbox">
-              <span>Remember me</span>
-            </label>
-            <a href="mycomponents/forgot.html" class="text-sm text-green-700 hover:underline">Forgot password?</a>
-          </div>
-          <button type="submit" class="w-full py-2 bg-green-600 text-white rounded hover:bg-green-700">Login</button>
-        </form>
-        <p class="mt-4 text-center text-sm text-gray-600">
-          Don't have an account?
-          <a href="mycomponents/sign_up.html" class="text-green-700 hover:underline">Sign up</a>
-        </p>
+    <div class="nav-overlay" id="navOverlay"></div>
+  </nav>
+
+  <!-- Hero Banner -->
+  <div class="w-full bg-white/60 backdrop-blur-md py-5 shadow-lg text-center mt-16 animate-fade-in-down" style="animation-delay: 0.2s;">
+    <h2 class="text-2xl md:text-3xl font-bold font-outfit text-green-800 tracking-tight">
+      🌱 Welcome to Smart Crop Monitoring System
+    </h2>
+    <p class="text-sm text-green-700/80 mt-1">Empowering agriculture with IoT technology</p>
+  </div>
+
+  <!-- Login Card -->
+  <div class="flex items-center justify-center min-h-[calc(100vh-120px)] px-4 pt-8 pb-12">
+    <div class="glass-card p-8 md:p-10 w-full max-w-md animate-fade-in-up" style="animation-delay: 0.3s;">
+
+      <div class="flex items-center justify-center mb-6 space-x-3">
+        <img src="img/logo-0_1.png" alt="AgroSense IoT Logo" class="h-14 w-14 rounded-full object-contain border-2 border-green-400/50 shadow-md">
+        <h1 class="text-2xl font-bold font-outfit text-green-800">AgroSense IoT</h1>
       </div>
+
+      <form id="loginForm" class="space-y-5" action="backend/login_0.php" method="POST">
+        <div>
+          <label for="Username" class="form-label">Username</label>
+          <input type="text" id="Username" name="Username" class="form-input" placeholder="Enter your username" required>
+        </div>
+        <div>
+          <label for="password" class="form-label">Password</label>
+          <input type="password" id="password" name="password" class="form-input" placeholder="••••••••" required>
+        </div>
+        <div class="flex items-center justify-between text-sm">
+          <label class="flex items-center space-x-2 cursor-pointer">
+            <input type="checkbox" id="rememberMe" class="w-4 h-4 rounded border-gray-300 text-green-600 focus:ring-green-500">
+            <span class="text-gray-700">Remember me</span>
+          </label>
+          <a href="mycomponents/forgot.html" class="text-green-700 hover:text-green-900 font-medium transition-colors">Forgot password?</a>
+        </div>
+        <button type="submit" class="btn-primary w-full py-3 text-base">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/></svg>
+          Login
+        </button>
+      </form>
+
+      <p class="mt-5 text-center text-sm text-gray-600">
+        Don't have an account?
+        <a href="mycomponents/sign_up.html" class="text-green-700 font-semibold hover:text-green-900 transition-colors">Sign up</a>
+      </p>
     </div>
-  
-    <!-- <script>
-      document.getElementById("loginForm").addEventListener("submit", function (e) {
-        e.preventDefault();
-        const Username = document.getElementById("Username").value;
-        const password = document.getElementById("password").value;
-  
-        if ((Username === "jaycob44" && password === "Utk@93990") || (Username === "rahul5693" && password === "rahul@")) {
-          alert("Login successful");
-          window.location.href = "dashboard.html";
-        } else {
-          alert("Invalid credentials");
-        }
-      });
-    </script> -->
-  </body>
-  
+  </div>
+
+  <!-- Nav toggle + Remember Me script -->
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    const navOverlay = document.getElementById('navOverlay');
+    const mainNav = document.getElementById('mainNav');
+
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      navOverlay.classList.toggle('active');
+    });
+    navOverlay.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navOverlay.classList.remove('active');
+    });
+
+    window.addEventListener('scroll', () => {
+      mainNav.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // ---- Remember Me ----
+    const usernameInput = document.getElementById('Username');
+    const rememberCheckbox = document.getElementById('rememberMe');
+    const loginForm = document.getElementById('loginForm');
+
+    // On load: restore saved username
+    const saved = localStorage.getItem('agrosense_remember');
+    if (saved) {
+      try {
+        const data = JSON.parse(saved);
+        usernameInput.value = data.username || '';
+        rememberCheckbox.checked = true;
+      } catch(e) {}
+    }
+
+    // On submit: save or clear
+    loginForm.addEventListener('submit', () => {
+      if (rememberCheckbox.checked) {
+        localStorage.setItem('agrosense_remember', JSON.stringify({
+          username: usernameInput.value
+        }));
+      } else {
+        localStorage.removeItem('agrosense_remember');
+      }
+    });
+  </script>
+</body>
 
 </html>

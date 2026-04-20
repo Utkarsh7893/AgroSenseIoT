@@ -54,26 +54,47 @@ $farms = $listStmt->fetchAll();
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Farms</title>
+  <meta name="description" content="Manage your farms on AgroSense IoT — add new farms and view your farm portfolio.">
+  <title>My Farms — AgroSense IoT</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script>
+    tailwind.config = {
+      theme: { extend: { fontFamily: { inter: ['Inter', 'sans-serif'], outfit: ['Outfit', 'sans-serif'] } } }
+    }
+  </script>
 </head>
-<body class="bg-slate-100 min-h-screen">
-  <div class="max-w-6xl mx-auto px-4 py-8">
-    <div class="flex items-center justify-between mb-6">
-      <h1 class="text-3xl font-bold text-slate-800">My Farms</h1>
-      <div class="space-x-2">
-        <a href="./dashboard.php" class="px-4 py-2 rounded bg-green-600 text-white hover:bg-green-700">Dashboard</a>
-        <a href="../backend/logout.php" class="px-4 py-2 rounded bg-red-600 text-white hover:bg-red-700">Logout</a>
+<body class="mgmt-page">
+  <div class="mgmt-container animate-fade-in">
+
+    <!-- Header -->
+    <div class="mgmt-header">
+      <div class="flex items-center gap-4">
+        <a href="./dashboard.php" class="back-btn">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          Dashboard
+        </a>
+        <h1 class="flex items-center gap-2">
+          <span class="text-2xl">🌾</span> My Farms
+        </h1>
+      </div>
+      <div class="mgmt-actions">
+        <a href="./plots.php" class="btn-secondary text-sm py-2 px-4">🗺️ Plots</a>
+        <a href="./alerts.php" class="btn-secondary text-sm py-2 px-4">⚠️ Alerts</a>
+        <a href="../backend/logout.php" class="btn-danger text-sm py-2 px-4">Logout</a>
       </div>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-6">
-      <section class="bg-white rounded-xl shadow p-6">
-        <h2 class="text-xl font-semibold mb-4">Add Farm</h2>
+    <!-- Content Grid -->
+    <div class="mgmt-grid">
+
+      <!-- Add Farm Card -->
+      <div class="mgmt-card animate-fade-in-up">
+        <h2>➕ Add New Farm</h2>
 
         <?php if (!empty($errors)): ?>
-          <div class="mb-4 rounded bg-red-100 text-red-700 px-4 py-3">
-            <ul class="list-disc pl-5">
+          <div class="msg-error">
+            <ul class="list-disc pl-5 text-sm">
               <?php foreach ($errors as $error): ?>
                 <li><?php echo htmlspecialchars($error); ?></li>
               <?php endforeach; ?>
@@ -82,56 +103,61 @@ $farms = $listStmt->fetchAll();
         <?php endif; ?>
 
         <?php if ($success !== ""): ?>
-          <div class="mb-4 rounded bg-green-100 text-green-700 px-4 py-3">
-            <?php echo htmlspecialchars($success); ?>
-          </div>
+          <div class="msg-success text-sm"><?php echo htmlspecialchars($success); ?></div>
         <?php endif; ?>
 
         <form method="POST" class="space-y-4">
           <div>
-            <label class="block text-sm font-medium mb-1">Farm Name *</label>
-            <input type="text" name="farm_name" class="w-full border rounded px-3 py-2" required />
+            <label class="form-label">Farm Name *</label>
+            <input type="text" name="farm_name" class="form-input" placeholder="e.g. Green Valley Farm" required />
           </div>
           <div>
-            <label class="block text-sm font-medium mb-1">Location</label>
-            <input type="text" name="location" class="w-full border rounded px-3 py-2" />
+            <label class="form-label">Location</label>
+            <input type="text" name="location" class="form-input" placeholder="e.g. Rajasthan, India" />
           </div>
           <div>
-            <label class="block text-sm font-medium mb-1">Area (Acres)</label>
-            <input type="text" name="area_acres" class="w-full border rounded px-3 py-2" />
+            <label class="form-label">Area (Acres)</label>
+            <input type="text" name="area_acres" class="form-input" placeholder="e.g. 12.5" />
           </div>
-          <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
+          <button type="submit" class="btn-primary w-full py-2.5">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
             Save Farm
           </button>
         </form>
-      </section>
+      </div>
 
-      <section class="bg-white rounded-xl shadow p-6">
-        <h2 class="text-xl font-semibold mb-4">Farm List</h2>
+      <!-- Farm List Card -->
+      <div class="mgmt-card animate-fade-in-up" style="animation-delay: 0.1s;">
+        <h2>📋 Farm List</h2>
 
         <?php if (empty($farms)): ?>
-          <p class="text-slate-600">No farms added yet.</p>
+          <div class="text-center py-8">
+            <span class="text-5xl block mb-3">🌱</span>
+            <p class="text-slate-500">No farms added yet. Create your first farm!</p>
+          </div>
         <?php else: ?>
-          <div class="overflow-auto">
-            <table class="w-full text-sm border">
-              <thead class="bg-slate-100">
-                <tr >
-                  <th class="p-2 border text-left">Name</th>
-                  <th class="p-2 border text-left">Location</th>
-                  <th class="p-2 border text-left">Area</th>
-                  <th class="p-2 border text-left">Created</th>
-                  <th class="p-2 border text-left">Actions</th>
+          <div class="overflow-auto rounded-xl border border-slate-100">
+            <table class="mgmt-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Location</th>
+                  <th>Area</th>
+                  <th>Created</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
                 <?php foreach ($farms as $farm): ?>
                   <tr>
-                    <td class="p-2 border"><?php echo htmlspecialchars($farm["farm_name"]); ?></td>
-                    <td class="p-2 border"><?php echo htmlspecialchars($farm["location"] ?? "-"); ?></td>
-                    <td class="p-2 border"><?php echo htmlspecialchars($farm["area_acres"] ?? "-"); ?></td>
-                    <td class="p-2 border"><?php echo htmlspecialchars($farm["created_at"]); ?></td>
-                    <td class="p-2 border">
-                      <a href="./plots.php?farm_id=<?php echo (int)$farm['id']; ?>" class="text-blue-600 hover:underline">Manage Plots</a>
+                    <td class="font-medium text-slate-800"><?php echo htmlspecialchars($farm["farm_name"]); ?></td>
+                    <td><?php echo htmlspecialchars($farm["location"] ?? "—"); ?></td>
+                    <td><?php echo htmlspecialchars($farm["area_acres"] ?? "—"); ?></td>
+                    <td class="text-xs"><?php echo htmlspecialchars($farm["created_at"]); ?></td>
+                    <td>
+                      <a href="./plots.php?farm_id=<?php echo (int)$farm['id']; ?>" class="text-emerald-600 hover:text-emerald-800 font-medium text-sm transition-colors">
+                        Manage Plots →
+                      </a>
                     </td>
                   </tr>
                 <?php endforeach; ?>
@@ -139,7 +165,7 @@ $farms = $listStmt->fetchAll();
             </table>
           </div>
         <?php endif; ?>
-      </section>
+      </div>
     </div>
   </div>
 </body>

@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover upcoming agricultural technology events, smart farming workshops, and IoT conferences hosted by AgroSense IoT.">
+  <title>Events — AgroSense IoT</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+    tailwind.config = {
+      theme: { extend: { fontFamily: { inter: ['Inter', 'sans-serif'], outfit: ['Outfit', 'sans-serif'] } } }
+    }
+  </script>
+</head>
+
+<body class="watermark-bg">
+
+  <!-- Three.js Canvas Background -->
+  <canvas id="nature-canvas"></canvas>
+
+  <!-- Navigation Bar -->
+  <nav class="main-nav" id="mainNav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <img src="img/logo-0_1.png" alt="AgroSense IoT Logo">
+        <span>AgroSense IoT</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="events.html" class="active">Events</a></li>
+        <li><a href="index.html" class="nav-cta">Login</a></li>
+      </ul>
+    </div>
+    <div class="nav-overlay" id="navOverlay"></div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative pt-32 pb-16 px-4">
+    <div class="max-w-6xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-emerald-200 text-sm font-medium mb-6 animate-fade-in-down">
+        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse-gentle"></span>
+        Upcoming Events & Workshops
+      </div>
+      <h1 class="text-4xl md:text-6xl font-bold font-outfit text-white mb-6 animate-fade-in-up leading-tight">
+        Our <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-lime-300">Events</span>
+      </h1>
+      <p class="text-lg md:text-xl text-emerald-100/80 max-w-3xl mx-auto leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s;">
+        Join us at agricultural technology conferences, smart farming workshops, and sustainability summits. 
+        Learn, network, and grow with the AgroSense community.
+      </p>
+    </div>
+  </section>
+
+  <!-- Event Cards Grid -->
+  <section class="py-12 px-4" id="events-grid">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Event 1 -->
+      <div class="glass-card-strong overflow-hidden hover-lift scroll-reveal group">
+        <div class="relative h-48 overflow-hidden">
+          <img src="img/event_workshop.png" alt="Smart Farming Workshop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div class="absolute top-4 left-4 px-3 py-1 bg-emerald-600 text-white text-xs font-bold rounded-full uppercase tracking-wider">Workshop</div>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-3 text-sm text-gray-500 mb-3">
+            <span class="flex items-center gap-1">📅 June 15, 2026</span>
+            <span class="flex items-center gap-1">📍 New Delhi</span>
+          </div>
+          <h3 class="text-xl font-bold font-outfit text-emerald-900 mb-2">🌾 Smart Farming Workshop 2026</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">Hands-on workshop covering IoT sensor deployment, automated irrigation setup, and real-time crop monitoring techniques.</p>
+          <a href="#event-1" class="btn-primary text-sm py-2 px-4">Learn More →</a>
+        </div>
+      </div>
+
+      <!-- Event 2 -->
+      <div class="glass-card-strong overflow-hidden hover-lift scroll-reveal group">
+        <div class="relative h-48 overflow-hidden">
+          <img src="img/event_summit.png" alt="IoT in Agriculture Summit" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div class="absolute top-4 left-4 px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full uppercase tracking-wider">Summit</div>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-3 text-sm text-gray-500 mb-3">
+            <span class="flex items-center gap-1">📅 July 22, 2026</span>
+            <span class="flex items-center gap-1">📍 Bangalore</span>
+          </div>
+          <h3 class="text-xl font-bold font-outfit text-emerald-900 mb-2">🤖 IoT in Agriculture Summit</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">A premier summit bringing together AgriTech leaders, IoT innovators, and researchers to discuss the future of connected farming.</p>
+          <a href="#event-2" class="btn-primary text-sm py-2 px-4">Learn More →</a>
+        </div>
+      </div>
+
+      <!-- Event 3 -->
+      <div class="glass-card-strong overflow-hidden hover-lift scroll-reveal group">
+        <div class="relative h-48 overflow-hidden bg-gradient-to-br from-emerald-200 to-lime-200 flex items-center justify-center">
+          <span class="text-8xl">🌍</span>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-3 text-sm text-gray-500 mb-3">
+            <span class="flex items-center gap-1">📅 Aug 10, 2026</span>
+            <span class="flex items-center gap-1">📍 Mumbai</span>
+          </div>
+          <h3 class="text-xl font-bold font-outfit text-emerald-900 mb-2">🌍 Sustainable Farming Expo</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">Explore sustainable agriculture practices, organic farming methods, and eco-friendly technologies for the modern farmer.</p>
+          <a href="#event-3" class="btn-primary text-sm py-2 px-4">Learn More →</a>
+        </div>
+      </div>
+
+      <!-- Event 4 -->
+      <div class="glass-card-strong overflow-hidden hover-lift scroll-reveal group">
+        <div class="relative h-48 overflow-hidden bg-gradient-to-br from-sky-200 to-blue-200 flex items-center justify-center">
+          <span class="text-8xl">💧</span>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-3 text-sm text-gray-500 mb-3">
+            <span class="flex items-center gap-1">📅 Sep 05, 2026</span>
+            <span class="flex items-center gap-1">📍 Hyderabad</span>
+          </div>
+          <h3 class="text-xl font-bold font-outfit text-emerald-900 mb-2">💧 Water Resource Management Seminar</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">Expert-led seminar on water conservation, drip irrigation optimization, and smart water management for agriculture.</p>
+          <a href="#event-4" class="btn-primary text-sm py-2 px-4">Learn More →</a>
+        </div>
+      </div>
+
+      <!-- Event 5 -->
+      <div class="glass-card-strong overflow-hidden hover-lift scroll-reveal group">
+        <div class="relative h-48 overflow-hidden bg-gradient-to-br from-purple-200 to-indigo-200 flex items-center justify-center">
+          <span class="text-8xl">📡</span>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-3 text-sm text-gray-500 mb-3">
+            <span class="flex items-center gap-1">📅 Oct 18, 2026</span>
+            <span class="flex items-center gap-1">📍 Chennai</span>
+          </div>
+          <h3 class="text-xl font-bold font-outfit text-emerald-900 mb-2">📡 Sensor Technology Conference</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">Deep dive into sensor tech — from soil probes to weather stations. Learn to build your own IoT monitoring network.</p>
+          <a href="#event-5" class="btn-primary text-sm py-2 px-4">Learn More →</a>
+        </div>
+      </div>
+
+      <!-- Event 6 -->
+      <div class="glass-card-strong overflow-hidden hover-lift scroll-reveal group">
+        <div class="relative h-48 overflow-hidden bg-gradient-to-br from-lime-200 to-green-200 flex items-center justify-center">
+          <span class="text-8xl">🌱</span>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-3 text-sm text-gray-500 mb-3">
+            <span class="flex items-center gap-1">📅 Nov 28, 2026</span>
+            <span class="flex items-center gap-1">📍 Jaipur</span>
+          </div>
+          <h3 class="text-xl font-bold font-outfit text-emerald-900 mb-2">🌱 Organic Farming Meetup</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">Community meetup to share organic farming experiences, composting techniques, crop rotation strategies, and farm-to-fork practices.</p>
+          <a href="#event-6" class="btn-primary text-sm py-2 px-4">Learn More →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Separator -->
+  <div class="max-w-6xl mx-auto px-4 py-8">
+    <div class="border-t border-white/10"></div>
+  </div>
+
+  <!-- Event Detail Sections -->
+  <section class="px-4 pb-16 space-y-12">
+
+    <!-- Event 1 Detail -->
+    <div id="event-1" class="max-w-4xl mx-auto glass-card-strong p-8 md:p-10 scroll-reveal">
+      <a href="#events-grid" class="back-btn mb-6 inline-flex">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        Back to Events
+      </a>
+      <div class="grid md:grid-cols-2 gap-8 items-start">
+        <div>
+          <span class="inline-block px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-bold rounded-full uppercase mb-4">Workshop</span>
+          <h2 class="text-3xl font-bold font-outfit text-emerald-900 mb-3">🌾 Smart Farming Workshop 2026</h2>
+          <div class="flex flex-wrap gap-4 text-sm text-gray-600 mb-4">
+            <span>📅 June 15, 2026</span>
+            <span>📍 India Habitat Centre, New Delhi</span>
+            <span>⏰ 9:00 AM – 5:00 PM</span>
+          </div>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Join us for a comprehensive hands-on workshop on deploying IoT sensors in agricultural fields. 
+            You'll learn to set up Arduino and ESP-based monitoring systems, configure automated irrigation, 
+            and visualize real-time crop data through dashboards.
+          </p>
+          <h4 class="font-bold text-emerald-800 mb-2">Agenda:</h4>
+          <ul class="text-sm text-gray-600 space-y-1 mb-6">
+            <li>• Introduction to IoT in Agriculture</li>
+            <li>• Hands-on: Assembling Sensor Kits</li>
+            <li>• Setting Up Real-Time Monitoring Dashboard</li>
+            <li>• Automated Irrigation Demo</li>
+            <li>• Q&A and Networking Session</li>
+          </ul>
+          <button class="btn-primary" onclick="openRegisterModal(this)">Register Interest</button>
+        </div>
+        <div class="rounded-2xl overflow-hidden shadow-xl">
+          <img src="img/event_workshop.png" alt="Smart Farming Workshop" class="w-full h-64 object-cover">
+        </div>
+      </div>
+    </div>
+
+    <!-- Event 2 Detail -->
+    <div id="event-2" class="max-w-4xl mx-auto glass-card-strong p-8 md:p-10 scroll-reveal">
+      <a href="#events-grid" class="back-btn mb-6 inline-flex">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        Back to Events
+      </a>
+      <div class="grid md:grid-cols-2 gap-8 items-start">
+        <div>
+          <span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-full uppercase mb-4">Summit</span>
+          <h2 class="text-3xl font-bold font-outfit text-emerald-900 mb-3">🤖 IoT in Agriculture Summit</h2>
+          <div class="flex flex-wrap gap-4 text-sm text-gray-600 mb-4">
+            <span>📅 July 22–23, 2026</span>
+            <span>📍 Bangalore International Exhibition Centre</span>
+            <span>⏰ 10:00 AM – 6:00 PM</span>
+          </div>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            The IoT in Agriculture Summit brings together industry leaders, startups, and researchers 
+            to explore cutting-edge ideas in precision agriculture, AI-driven crop analysis, 
+            drone-based monitoring, and connected farm ecosystems.
+          </p>
+          <h4 class="font-bold text-emerald-800 mb-2">Highlights:</h4>
+          <ul class="text-sm text-gray-600 space-y-1 mb-6">
+            <li>• Keynote: The Future of Connected Farming</li>
+            <li>• Panel: AI & Machine Learning in Crop Health</li>
+            <li>• Startup Pitch Arena</li>
+            <li>• Live Drone Mapping Demo</li>
+            <li>• Networking Dinner</li>
+          </ul>
+          <button class="btn-primary" onclick="openRegisterModal(this)">Register Interest</button>
+        </div>
+        <div class="rounded-2xl overflow-hidden shadow-xl">
+          <img src="img/event_summit.png" alt="IoT Agriculture Summit" class="w-full h-64 object-cover">
+        </div>
+      </div>
+    </div>
+
+    <!-- Event 3 Detail -->
+    <div id="event-3" class="max-w-4xl mx-auto glass-card-strong p-8 md:p-10 scroll-reveal">
+      <a href="#events-grid" class="back-btn mb-6 inline-flex">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        Back to Events
+      </a>
+      <span class="inline-block px-3 py-1 bg-lime-100 text-lime-700 text-xs font-bold rounded-full uppercase mb-4">Expo</span>
+      <h2 class="text-3xl font-bold font-outfit text-emerald-900 mb-3">🌍 Sustainable Farming Expo</h2>
+      <div class="flex flex-wrap gap-4 text-sm text-gray-600 mb-4">
+        <span>📅 August 10–12, 2026</span>
+        <span>📍 Bombay Exhibition Centre, Mumbai</span>
+        <span>⏰ 9:00 AM – 7:00 PM</span>
+      </div>
+      <p class="text-gray-700 leading-relaxed mb-4">
+        Explore the latest in sustainable agriculture — from organic pest control and regenerative soil practices 
+        to solar-powered irrigation and biodegradable packaging. Over 200 exhibitors showcasing green farming innovations.
+      </p>
+      <h4 class="font-bold text-emerald-800 mb-2">Featured Zones:</h4>
+      <ul class="text-sm text-gray-600 space-y-1 mb-6">
+        <li>• Organic Produce Marketplace</li>
+        <li>• Green Tech Innovation Zone</li>
+        <li>• Sustainable Packaging Pavilion</li>
+        <li>• Farm-to-Fork Experience Area</li>
+        <li>• Youth in Agriculture Showcase</li>
+      </ul>
+      <button class="btn-primary" onclick="alert('Registration interest noted! We will contact you soon.')">Register Interest</button>
+    </div>
+
+    <!-- Event 4 Detail -->
+    <div id="event-4" class="max-w-4xl mx-auto glass-card-strong p-8 md:p-10 scroll-reveal">
+      <a href="#events-grid" class="back-btn mb-6 inline-flex">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        Back to Events
+      </a>
+      <span class="inline-block px-3 py-1 bg-sky-100 text-sky-700 text-xs font-bold rounded-full uppercase mb-4">Seminar</span>
+      <h2 class="text-3xl font-bold font-outfit text-emerald-900 mb-3">💧 Water Resource Management Seminar</h2>
+      <div class="flex flex-wrap gap-4 text-sm text-gray-600 mb-4">
+        <span>📅 September 05, 2026</span>
+        <span>📍 HICC, Hyderabad</span>
+        <span>⏰ 10:00 AM – 4:00 PM</span>
+      </div>
+      <p class="text-gray-700 leading-relaxed mb-4">
+        Water is agriculture's most precious resource. This seminar covers smart water management strategies including 
+        drip irrigation optimization, rainwater harvesting, groundwater monitoring, and sensor-based watering schedules.
+      </p>
+      <h4 class="font-bold text-emerald-800 mb-2">Topics Covered:</h4>
+      <ul class="text-sm text-gray-600 space-y-1 mb-6">
+        <li>• Drip vs. Sprinkler: An Efficiency Analysis</li>
+        <li>• IoT-Based Water Level Monitoring</li>
+        <li>• Government Schemes for Water Conservation</li>
+        <li>• Case Study: 50% Water Reduction with Smart Irrigation</li>
+      </ul>
+      <button class="btn-primary" onclick="alert('Registration interest noted! We will contact you soon.')">Register Interest</button>
+    </div>
+
+    <!-- Event 5 Detail -->
+    <div id="event-5" class="max-w-4xl mx-auto glass-card-strong p-8 md:p-10 scroll-reveal">
+      <a href="#events-grid" class="back-btn mb-6 inline-flex">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        Back to Events
+      </a>
+      <span class="inline-block px-3 py-1 bg-purple-100 text-purple-700 text-xs font-bold rounded-full uppercase mb-4">Conference</span>
+      <h2 class="text-3xl font-bold font-outfit text-emerald-900 mb-3">📡 Sensor Technology Conference</h2>
+      <div class="flex flex-wrap gap-4 text-sm text-gray-600 mb-4">
+        <span>📅 October 18–19, 2026</span>
+        <span>📍 ITC Grand Chola, Chennai</span>
+        <span>⏰ 9:00 AM – 5:30 PM</span>
+      </div>
+      <p class="text-gray-700 leading-relaxed mb-4">
+        A deep dive into sensor technology for agriculture — covering soil moisture probes, weather stations, 
+        GPS-guided systems, and building your own Arduino/ESP-based monitoring network from scratch.
+      </p>
+      <h4 class="font-bold text-emerald-800 mb-2">Workshop Tracks:</h4>
+      <ul class="text-sm text-gray-600 space-y-1 mb-6">
+        <li>• Track A: Beginner — Build Your First Sensor</li>
+        <li>• Track B: Intermediate — Multi-Sensor Networks</li>
+        <li>• Track C: Advanced — Cloud Integration & ML</li>
+        <li>• Maker Showcase & Poster Session</li>
+      </ul>
+      <button class="btn-primary" onclick="alert('Registration interest noted! We will contact you soon.')">Register Interest</button>
+    </div>
+
+    <!-- Event 6 Detail -->
+    <div id="event-6" class="max-w-4xl mx-auto glass-card-strong p-8 md:p-10 scroll-reveal">
+      <a href="#events-grid" class="back-btn mb-6 inline-flex">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        Back to Events
+      </a>
+      <span class="inline-block px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full uppercase mb-4">Meetup</span>
+      <h2 class="text-3xl font-bold font-outfit text-emerald-900 mb-3">🌱 Organic Farming Meetup</h2>
+      <div class="flex flex-wrap gap-4 text-sm text-gray-600 mb-4">
+        <span>📅 November 28, 2026</span>
+        <span>📍 Jawahar Kala Kendra, Jaipur</span>
+        <span>⏰ 11:00 AM – 3:00 PM</span>
+      </div>
+      <p class="text-gray-700 leading-relaxed mb-4">
+        An informal yet insightful community meetup where organic farmers, aspiring growers, and sustainability enthusiasts 
+        come together to share experiences, tips on composting, crop rotation, and transitioning from chemical to organic farming.
+      </p>
+      <h4 class="font-bold text-emerald-800 mb-2">What to Expect:</h4>
+      <ul class="text-sm text-gray-600 space-y-1 mb-6">
+        <li>• Storytelling Circle: Farmer Experiences</li>
+        <li>• Live Demo: Vermicomposting Setup</li>
+        <li>• Organic Seed Exchange</li>
+        <li>• Farm-to-Table Lunch</li>
+      </ul>
+      <button class="btn-primary" onclick="alert('Registration interest noted! We will contact you soon.')">Register Interest</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>🌱 AgroSense IoT</h4>
+        <p class="text-sm text-white/50 leading-relaxed">Empowering agriculture with smart IoT technology for sustainable and data-driven farming.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="events.html">Events</a>
+        <a href="index.html">Login</a>
+      </div>
+      <div class="footer-col">
+        <h4>Popular Events</h4>
+        <a href="#event-1">Smart Farming Workshop</a>
+        <a href="#event-2">IoT Agriculture Summit</a>
+        <a href="#event-3">Sustainable Farming Expo</a>
+        <a href="#event-4">Water Management Seminar</a>
+      </div>
+      <div class="footer-col">
+        <h4>Get Involved</h4>
+        <a href="#event-5">Sensor Conference</a>
+        <a href="#event-6">Organic Meetup</a>
+        <a href="about.html">About Us</a>
+        <a href="index.html">Join Now</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 AgroSense IoT — Smart Crop Monitoring System. Built with 💚 by Utkarsh Raj.</p>
+    </div>
+  </footer>
+
+  <!-- Registration Modal -->
+  <div id="registerModal" class="hidden fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+    <div class="glass-card-strong w-full max-w-md p-6 relative animate-scale-in">
+      <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl font-bold" onclick="closeRegisterModal()">&times;</button>
+      <h3 class="text-2xl font-bold font-outfit text-emerald-900 mb-1">Register Interest</h3>
+      <p id="modalEventName" class="text-sm font-semibold text-emerald-600 mb-5"></p>
+      
+      <form id="registerForm" class="space-y-4">
+        <input type="hidden" id="regEventSlug" name="event_slug">
+        <input type="hidden" id="regEventName" name="event_name">
+        <div>
+          <label class="form-label">Full Name</label>
+          <input type="text" id="regName" class="form-input" placeholder="Your Name" required>
+        </div>
+        <div>
+          <label class="form-label">Email</label>
+          <input type="email" id="regEmail" class="form-input" placeholder="you@example.com" required>
+        </div>
+        <div id="regAlert" class="hidden text-sm p-3 rounded-lg mt-2"></div>
+        <button type="submit" id="regSubmitBtn" class="btn-primary w-full py-2.5 mt-2">Submit Registration</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="js/nature-bg.js"></script>
+  <script>
+    // Navigation toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    const navOverlay = document.getElementById('navOverlay');
+    const mainNav = document.getElementById('mainNav');
+
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      navOverlay.classList.toggle('active');
+    });
+    navOverlay.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navOverlay.classList.remove('active');
+    });
+    window.addEventListener('scroll', () => {
+      mainNav.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Scroll reveal
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+        }
+      });
+    }, { threshold: 0.1 });
+    revealElements.forEach(el => observer.observe(el));
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        const target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Registration Modal Logic
+    const modal = document.getElementById('registerModal');
+    const form = document.getElementById('registerForm');
+    const alertBox = document.getElementById('regAlert');
+    const submitBtn = document.getElementById('regSubmitBtn');
+
+    window.openRegisterModal = function(btnElement) {
+      const parentEventArea = btnElement.closest('div[id^="event-"]');
+      if(parentEventArea) {
+        const slug = parentEventArea.id;
+        const heading = parentEventArea.querySelector('h2').innerText;
+        document.getElementById('regEventSlug').value = slug;
+        document.getElementById('regEventName').value = heading;
+        document.getElementById('modalEventName').innerText = heading;
+      }
+      form.reset();
+      alertBox.classList.add('hidden');
+      modal.classList.remove('hidden');
+    };
+
+    window.closeRegisterModal = function() {
+      modal.classList.add('hidden');
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      alertBox.classList.add('hidden');
+      submitBtn.disabled = true;
+      submitBtn.innerText = 'Submitting...';
+
+      const payload = {
+        event_slug: document.getElementById('regEventSlug').value,
+        event_name: document.getElementById('regEventName').value,
+        full_name: document.getElementById('regName').value,
+        email: document.getElementById('regEmail').value
+      };
+
+      try {
+        const res = await fetch('backend/api/register_event.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        
+        alertBox.classList.remove('hidden', 'bg-red-50', 'text-red-700');
+        alertBox.classList.add('bg-emerald-50', 'text-emerald-700');
+        
+        if (res.ok && data.success) {
+          alertBox.innerText = data.message;
+          setTimeout(() => {
+            closeRegisterModal();
+          }, 3000);
+        } else {
+          alertBox.classList.remove('bg-emerald-50', 'text-emerald-700');
+          alertBox.classList.add('bg-red-50', 'text-red-700');
+          alertBox.innerText = data.error || 'Registration failed.';
+        }
+      } catch (err) {
+        alertBox.classList.remove('hidden', 'bg-emerald-50', 'text-emerald-700');
+        alertBox.classList.add('bg-red-50', 'text-red-700');
+        alertBox.innerText = 'An error occurred. Please try again.';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerText = 'Submit Registration';
+      }
+    });
+
+  </script>
+</body>
+
+</html>
