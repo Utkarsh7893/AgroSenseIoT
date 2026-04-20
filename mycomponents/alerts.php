@@ -178,7 +178,18 @@ $alerts = $alertStmt->fetchAll();
                 <?php foreach ($alerts as $a): ?>
                   <tr>
                     <td class="p-2 border"><?php echo htmlspecialchars($a["farm_name"] . " / " . $a["plot_name"]); ?></td>
-                    <td class="p-2 border"><?php echo htmlspecialchars(strtoupper($a["severity"])); ?></td>
+                    <td class="p-2 border">
+                      <?php
+                        $sev = strtolower($a["severity"]);
+                        $sevClass = "bg-slate-100 text-slate-700";
+                        if ($sev === "high") $sevClass = "bg-red-100 text-red-700";
+                        elseif ($sev === "medium") $sevClass = "bg-amber-100 text-amber-700";
+                        elseif ($sev === "low") $sevClass = "bg-emerald-100 text-emerald-700";
+                      ?>
+                      <span class="px-2 py-1 rounded-full text-xs font-semibold <?php echo $sevClass; ?>">
+                        <?php echo htmlspecialchars(strtoupper($a["severity"])); ?>
+                      </span>
+                    </td>
                     <td class="p-2 border"><?php echo htmlspecialchars($a["message"]); ?></td>
                     <td class="p-2 border"><?php echo $a["is_read"] ? "Read" : "Unread"; ?></td>
                     <td class="p-2 border">
