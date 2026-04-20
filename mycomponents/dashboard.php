@@ -45,12 +45,12 @@ if (!isset($_SESSION["user_id"])) {
           <h2 class="text-3xl font-bold text-emerald-900">Smart Crop Monitoring</h2>
           <p class="text-sm text-slate-600">Welcome back, <?php echo htmlspecialchars($_SESSION["name"] ?? $_SESSION["username"]); ?></p>
         </div>
-        <div class="flex gap-3 text-sm">
+        <div class="flex flex-wrap gap-3 text-sm">
           <span class="px-3 py-2 rounded-full bg-slate-100 text-slate-700">Last updated: <span id="last-updated">--:--</span></span>
           <span class="px-3 py-2 rounded-full bg-red-100 text-red-700 font-semibold">Unread Alerts: <span id="unread-count">0</span></span>
         </div>
       </header>
-      <section class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <section id="current" class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div class="bg-white/95 rounded-2xl shadow p-5 border-l-4 border-emerald-500">
           <p class="text-sm text-slate-500">Temperature</p>
           <p class="text-3xl font-bold text-emerald-700" id="temperature">-- °C</p>
