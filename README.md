@@ -2,117 +2,62 @@
 
 ## 📌 Overview
 
-The **AgroSenseIoT** is a web-based application designed to simulate and eventually support real-time agricultural monitoring using IoT data. It focuses on providing farmers and users with a clear, intuitive interface to track environmental conditions affecting crop growth. Developed as part of a 2nd-year Computer Science Engineering curriculum, the project emphasizes responsive design, modular architecture, and scalability. The system is structured to integrate seamlessly with IoT sensors in the future, enabling live data visualization and smarter decision-making. By combining technology with agriculture, AgroSenseIoT aims to contribute toward more efficient, data-driven, and sustainable farming practices.
-
-The system aims to help users monitor key environmental factors such as **temperature 🌡️**, **humidity 💧**, and **soil moisture 🌾**, enabling better decision-making for crop health and productivity.
+**AgroSenseIoT** is a full-stack web-based application designed to simulate and support real-time agricultural monitoring using IoT data. The system provides a structured and user-friendly interface to track environmental conditions affecting crop health such as temperature, humidity, and soil moisture. Built with scalability in mind, the platform integrates frontend visualization with backend processing and database management. It is designed to serve as a foundation for smart farming solutions where real-time sensor data can drive informed agricultural decisions. By combining web technologies with IoT concepts, AgroSenseIoT aims to promote efficient, data-driven, and sustainable farming practices.
 
 ---
 
 ## 🚀 Features
 
-✨ User Authentication System (PHP-based)
+✨ Secure User Authentication System (PHP + MySQL)
 
-📊 Interactive Dashboard for environmental data
+📊 Interactive Dashboard for environmental monitoring
 
-📈 Data Visualization Panels for quick insights
+📈 Data Visualization Panels for better insights
 
-🔌 Scalable architecture for IoT sensor integration
+🗄️ Database Integration for storing user & system data
 
-📱 Fully responsive UI design
+🔌 IoT-ready architecture for sensor integration
 
-🧩 Modular structure for easy future expansion
+📱 Responsive and clean UI design
+
+🧩 Modular and scalable project structure
 
 ---
 
 ## 🛠️ Technology Stack
 
-* **Frontend:** HTML, CSS, JavaScript
-* **Backend:** PHP
-* **Database (Optional):** MySQL
-* **IoT Compatibility:** Arduino / ESP / Raspberry Pi
+- **Frontend:** HTML, CSS, JavaScript  
+- **Backend:** PHP  
+- **Database:** MySQL  
+- **Server:** XAMPP / WAMP / LAMP  
+- **IoT Compatibility:** Arduino / ESP / Raspberry Pi  
 
 ---
 
-## 🧠 Project Concept
+## 🧠 System Architecture
 
-This project is built with a **layered architecture**, separating:
+The project follows a **modular layered architecture**, including:
 
-* 🎨 UI/UX Components
-* 🔐 Authentication Logic
-* 📡 Data Handling Modules
-* 🔗 Future API Integration Points
+- 🎨 Frontend UI Layer (User Interface & Dashboard)
+- 🔐 Authentication Layer (Login/Register System)
+- ⚙️ Backend Logic (PHP Processing)
+- 🗄️ Database Layer (MySQL)
+- 🔗 Future IoT/API Integration Layer
 
-This modular approach ensures scalability and maintainability for future enhancements.
+This structure ensures scalability and smooth integration of real-time IoT data in future updates.
 
 ---
 
 ## ⚙️ Setup Instructions
 
-> ⚠️ **Important Note:** The login system will NOT work via GitHub Pages because it requires a PHP backend.
+### 🖥️ Requirements
 
-### Follow these steps to run locally:
+- XAMPP / WAMP / LAMP Server  
+- PHP (>= 7.x)  
+- MySQL Database  
 
-1. 📥 Download or clone the project repository
-2. 📂 Move the project folder into the `htdocs` directory of your XAMPP server
-3. ▶️ Start Apache from XAMPP Control Panel
-4. 🌐 Open your browser and navigate to:
+### 🔧 Steps to Run Locally
 
-```
-http://localhost/AgroSenseIoT/index.html
-```
-
----
-
-## 📊 Current Development Status
-
-✅ UI Design Completed
-
-✅ Authentication System Implemented (PHP-based)
-
-✅ Component Structure Ready
-
-🚧 Pending Features:
-
-* 🔄 Real-time IoT API Integration
-* 🗄️ Database-driven user management
-* 📉 Historical data tracking & visualization
-* 🚨 Smart alerts and threshold-based notifications
-
----
-
-## 🔮 Future Enhancements
-
-* 📡 Live sensor data streaming
-* 🤖 Predictive analytics for crop health
-* 📊 Advanced charts and reports
-* 📲 Mobile-friendly improvements
-* 🔔 Automated alert system for farmers
-
----
-
-## 🎯 Objective
-
-To build a **scalable and user-friendly interface** that can evolve into a fully functional IoT-based agricultural monitoring system, supporting smarter and data-driven farming practices.
-
----
-
-## 👨‍💻 Author
-
-**Utkarsh Raj**
-Aspiring Full Stack Web Developer 🚀
-
----
-
-## 📌 Note
-
-This project currently focuses on **front-end structure and system design**. Backend integrations and IoT connectivity are planned for future development phases.
-
----
-
-## ⭐ If you like this project
-
-Give it a ⭐ on GitHub and feel free to contribute or suggest improvements!
-
----
-
-🌾 *Empowering Agriculture with Technology* 🌾
+1. 📥 Clone the repository:
+```bash
+git clone https://github.com/Utkarsh7893/AgroSenseIoT.git
